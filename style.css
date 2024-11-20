@@ -1,0 +1,404 @@
+/* Estilos globales de reseteo */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Estilos del cuerpo de la página */
+body {
+  background-color: #f4f4f4;
+  padding: 2em;
+}
+
+/* Contenedor principal con diseño en grid */
+main {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 1.25em;
+  padding: 2em;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Estilo del encabezado */
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Estilo del encabezado h1 */
+h1 {
+  font-size: 1.5em;
+  color: #a88b73;
+}
+
+/* Contenedor de bienvenida */
+.contenedorBienvenida {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+/* Estilo para título y descripción */
+.titulo,
+.descripcion {
+  text-align: center;
+}
+
+/* Estilo del encabezado del calendario */
+.cabeceraCalendario {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f3f3f3;
+  border-radius: 8px 8px 0 0;
+}
+
+/* Estilo de los botones */
+button {
+  background-color: #a88b73;
+  color: white;
+  border: none;
+  padding: 0.3125em;
+  cursor: pointer;
+  font-size: 1.125em;
+  border-radius: 0.3125em;
+  transition: background-color 0.3s, transform 0.3s;
+
+}
+
+button:hover {
+  background-color: #624023;
+  animation: botonExpandir 0.3s forwards;
+
+}
+
+/* Estilo de mes y año en el calendario */
+#mesAño {
+  font-size: 18px;
+  color: #624023;
+  font-weight: bold;
+}
+
+/* Estilo de la cuadrícula del calendario */
+.cuadrículaCalendario {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(7, 40px);
+  gap: 5px;
+  padding: 10px;
+  background-color: #00000004;
+  border: 1px solid #ddd;
+  border-radius: 0.5em;
+  animation: calendarioDeslizar 0.5s ease-out;
+
+}
+
+/* Estilo de los nombres de los días */
+.nombresDias {
+  display: contents;
+}
+
+.nombresDias div {
+  display: grid;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  background-color: #a88b73;
+  padding: 5px;
+}
+
+/* Estilo de los días en el calendario */
+.diasCalendario {
+  display: contents;
+}
+
+.diasCalendario div {
+  background-color: #dddddda9;
+  text-align: center;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1em;
+  border-radius: 5%;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.diasCalendario div:hover {
+  background-color: #624023;
+  color: white;
+  transform: scale(1.1);
+
+}
+
+/* Estilo para el día actual */
+#hoy {
+  background-color: #a88b73;
+  border-radius: 5%;
+  color: white;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s;
+
+}
+
+#hoy:hover {
+  transform: scale(1.1);
+  background-color: #624023;
+}
+
+/* Estilo del cuadro de citas */
+#cuadro {
+  width: 100%;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: block;
+  overflow: auto;
+}
+
+/* Estilo del contenedor de la agenda */
+.contenedorAgenda {
+  max-width: 1200px;
+  background-image: url(./mylook.png);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-position: center;
+  z-index: 100;
+  display: block;
+  min-height: 478px;
+  flex: 1;
+  animation: desvanecer 1s ease-in-out;
+}
+
+/* Estilo de la cuadrícula de la agenda */
+.agendaGrid {
+  display: grid;
+  grid-template-columns: auto repeat(6, 1fr);
+  gap: 1px;
+  background-color: #e0e0e0;
+  padding: 10px;
+  animation: desvanecer 1s ease-in-out;
+
+}
+
+/* Estilo de las celdas de la agenda */
+.celda {
+  background-color: white;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.celda:hover {
+  background-color: #f3f3f3;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+}
+/* Estilo de las celdas de encabezado en la agenda */
+.headerCelda {
+  color: white;
+  font-weight: bold;
+}
+
+/* Estilo de las celdas de tiempo */
+.celdaTiempo {
+  background-color: white;
+  color: #a88b73;
+  font-weight: bold;
+  text-align: right;
+}
+
+/* Estilo de las celdas de día */
+.diaCelda {
+  width: 100%;
+  min-height: 42px;
+}
+
+/* Estilo de las citas */
+.cita {
+  background-color: #a88b73;
+  color: white;
+  padding: 5px;
+  font-size: 0.8em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  grid-row: auto;
+  animation: desvanecer 0.5s ease-in-out;
+
+}
+
+/* Estilo del encabezado de los días */
+.diaHeader {
+  color: #a88b73;
+}
+
+/* Estilo del número del día */
+.diaNumero {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #624023;
+}
+
+/* Ajustes en las celdas de encabezado */
+.agendaGrid .celda.headerCelda:nth-child(1) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #a88b73;
+  padding: 10px;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+/* Estilo para las celdas de días vacíos */
+.diaVacio {
+  color: #00000069;
+}
+
+/* Estilos para pantallas pequeñas: una sola columna */
+.mensajeInicial {
+  grid-column: 1 / -1;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  color: #624023;
+  width: 100%;
+  height: 100%;
+  place-content: center;
+}
+
+/* Media queries para diseño responsivo */
+
+/* Para pantallas más pequeñas de 768px */
+@media (max-width: 768px) {
+  .agendaGrid {
+    grid-template-columns: auto repeat(3, 1fr);
+  }
+
+  .agendaGrid .celda.headerCelda:nth-child(1) {
+    font-size: 12px;
+  }
+}
+
+/* Para pantallas más pequeñas de 894px */
+@media (max-width: 894px) {
+  main {
+    place-content: center;
+    grid-template-columns: 1fr;
+  }
+
+  .contenedorAgenda {
+    max-width: 1200px;
+    background-image: url(./mylook.png);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-position: center;
+    z-index: 100;
+    display: block;
+    flex: 1;
+  }
+
+  .celda {
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  .headerCelda {
+    font-size: 14px;
+    padding: 8px;
+    text-align: center;
+  }
+
+  .diaCelda {
+    font-size: 14px;
+    padding: 3px;
+    height: 70px;
+    text-align: center;
+  }
+
+  .celdaTiempo {
+    font-size: 12px;
+    padding: 8px;
+    text-align: center;
+  }
+}
+
+/* Para pantallas más pequeñas de 1258px */
+@media (max-width: 1258px) {
+  .agendaGrid {
+    grid-template-columns: auto repeat(6, 1fr);
+  }
+}
+
+/* Para pantallas entre 1059px y 1221px */
+@media (max-width: 1221px) {
+  .agendaGrid {
+    grid-template-columns: auto repeat(5, 1fr);
+  }
+}
+
+/* Para pantallas entre 995px y 1059px */
+@media (max-width: 1059px) {
+  .agendaGrid {
+    grid-template-columns: auto repeat(4, 1fr);
+  }
+}
+
+/* Para pantallas entre 768px y 995px */
+@media (max-width: 995px) {
+  .agendaGrid {
+    grid-template-columns: auto repeat(3, 1fr);
+  }
+}
+
+
+/* Animación de desvanecimiento al cargar */
+@keyframes desvanecer {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Animación para un botón que se expande */
+@keyframes botonExpandir {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+/* Animación para el calendario cuando se abre */
+@keyframes calendarioDeslizar {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

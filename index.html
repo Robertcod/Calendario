@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendario de Citas</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Contenedor que da la bienvenida al usuario -->
+    <div class="contenedorBienvenida">
+      <h2 class="titulo">Bienvenido a la agenda de tu establecimiento!</h2>
+      <!-- Título de bienvenida -->
+    </div>
+
+    <!-- Descripción de cómo utilizar la página -->
+    <p class="descripcion">
+      Aqui usted podra visualizar las citas de su establecimiento, presione la
+      fecha en el calendario para desplazarce por sus diferentes citas
+    </p>
+
+    <main>
+      <!-- Contenedor del calendario -->
+      <section class="contenedorCalendario">
+        <div class="cabeceraCalendario">
+          <!-- Botón para cambiar al mes anterior -->
+          <button onclick="cambiarMes(-1)" aria-label="Mes anterior">←</button>
+          <!-- Muestra el mes y el año actual -->
+          <div id="mesAño"></div>
+          <!-- Botón para cambiar al mes siguiente -->
+          <button onclick="cambiarMes(1)" aria-label="Mes siguiente">→</button>
+        </div>
+
+        <div class="cuadrículaCalendario">
+          <!-- Nombres de los días de la semana -->
+          <div class="nombresDias">
+            <div>Dom</div>
+            <div>Lun</div>
+            <div>Mar</div>
+            <div>Mié</div>
+            <div>Jue</div>
+            <div>Vie</div>
+            <div>Sáb</div>
+          </div>
+
+          <!-- Contenedor donde se van a mostrar los días del calendario -->
+          <div class="diasCalendario" id="diasCalendario"></div>
+        </div>
+      </section>
+
+      <!-- Contenedor para la agenda, inicialmente oculto -->
+      <section class="contenedorAgenda" id="agenda" style="display: none">
+        <div class="agendaGrid" id="agendaGrid"></div>
+        <!-- Contenedor donde se mostrarán las citas -->
+      </section>
+    </main>
+
+    <!-- Enlace al archivo JavaScript donde se manejan las interacciones -->
+    <script src="app.js"></script>
+  </body>
+</html>
